@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+:root {
+  --white: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root,
+.app,
+.content {
+  background-color: var(--white);
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif
+}
+
+.app{
+  display: flex;
+  position: relative;
+}
+
+/* Scrollbar Design */
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb{
+  background: #888;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #555;
+}
+
+/* ---------------------- */
+
