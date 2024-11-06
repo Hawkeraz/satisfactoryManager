@@ -117,6 +117,15 @@ const Sidebar = () => {
           {/* Menu Items */}
 
           <Box paddingLeft={collapser ? undefined : "10%"}>
+            <Item
+              title="News"
+              to="/"
+              icon={<MaterialIcons.NewReleases />}
+              selected={selected}
+              setSelected={setSelected}
+              key={0}
+            />
+
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -173,7 +182,6 @@ const Sidebar = () => {
                 key={opts.id}
               />
             ))}
-
           </Box>
         </Menu>
       </ProSidebar>
