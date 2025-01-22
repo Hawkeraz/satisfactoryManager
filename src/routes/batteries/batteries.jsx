@@ -10,15 +10,15 @@ const Batteries = () => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="BATTERIES" subtitle="Check your circuits" />
       </Box>
-      <Box
-        height="75vh"
-
-      >
-        {getPower.map((power) => (
+      <Box height="75vh" display="flex" justifyContent="left" alignItems="left">
+        {getPower.map((power, id) => (
           <Cards
             capacity={power.PowerCapacity}
             maxUsing={power.PowerMaxConsumed}
             using={power.PowerConsumed}
+            percent={power.BatteryPercent}
+            fuse={power.FuseTriggered}
+            key={id}
           />
         ))}
       </Box>
