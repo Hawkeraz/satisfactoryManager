@@ -1,31 +1,28 @@
-import { useEffect, useState } from "react";
 import * as MUIicons from "@mui/icons-material";
 import { Typography, Box, useTheme } from "@mui/material";
 import { colorTokens } from "../../theme";
 const Cards = (props) => {
   const { maxUsing, using, capacity, percent, fuse, name } = props;
 
-  const [power, setPower] = useState("BatteryChargingFull");
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
 
-  useEffect(() => {
-    function powerCheck(percent) {
-      const batteryLevels = {
-        100: "BatteryChargingFull",
-        90: "BatteryCharging90",
-        80: "BatteryCharging80",
-        60: "BatteryCharging60",
-        50: "BatteryCharging50",
-        30: "BatteryCharging30",
-        20: "BatteryCharging20",
-      };
-      if (batteryLevels[percent]) {
-        setPower(batteryLevels[percent]);
-      }
+  function powerCheck(percent) {
+    switch (true) {
+      case percent == 100:
+        return <MUIicons.BatteryChargingFull sx={{ fontSize: "3rem" }} />;
+        break;
+      case percent >= 10 && percent <= 99:
+        return <MUIicons.BatteryCharging50 sx={{ fontSize: "3rem" }} />;
+        break;
+      case percent <= 10:
+        return <MUIicons.Battery0Bar sx={{ fontSize: "3rem" }} />;
+        break;
+      default:
+        return <MUIicons.BatteryUnknown sx={{ fontSize: "3rem" }} />;
+        break;
     }
-    powerCheck(percent);
-  }, []);
+  }
 
   return (
     <Box>
@@ -51,7 +48,7 @@ const Cards = (props) => {
             borderRadius="20px"
             boxShadow="4"
           >
-            <MUIicons.Battery0Bar sx={{ fontSize: "3rem" }} />
+            {powerCheck(percent)}
           </Box>
 
           <Box

@@ -24,7 +24,7 @@ export const getPower = [
     BatteryInput: 0,
     BatteryOutput: 0,
     BatteryDifferential: 0,
-    BatteryPercent: 0,
+    BatteryPercent: 27,
     BatteryCapacity: 0,
     BatteryTimeEmpty: "00:00:00",
     BatteryTimeFull: "00:00:00",
