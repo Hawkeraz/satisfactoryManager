@@ -1,3 +1,3 @@
 <p align="left">
-  [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+  <img alt="version" src="https://img.shields.io/badge/React-18.3.11-purple"/>
 </p>
