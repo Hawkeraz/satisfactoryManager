@@ -31,7 +31,7 @@ const Sidebar = () => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
   const [collapser, setCollapser] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
+  const [selected, setSelected] = useState("news");
 
   return (
     <Box
@@ -119,7 +119,7 @@ const Sidebar = () => {
           <Box paddingLeft={collapser ? undefined : "10%"}>
             <Item
               title="News"
-              to="/"
+              to="/news"
               icon={<MaterialIcons.NewReleases />}
               selected={selected}
               setSelected={setSelected}

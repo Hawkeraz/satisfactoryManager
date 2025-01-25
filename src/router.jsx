@@ -4,7 +4,7 @@ import { Home, Dashboard, Error404, Warehouse, Batteries } from "./routes";
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/news" element={<Home />} />
       <Route path="/dash" element={<Dashboard />} />
       <Route path="/warehouse" element={<Warehouse />} />
       <Route path="/batteries" element={<Batteries />} />

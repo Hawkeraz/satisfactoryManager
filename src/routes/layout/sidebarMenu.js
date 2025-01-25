@@ -36,7 +36,7 @@ export const LogisticTracking = [
   },
   {
     title: "Vehicle Tracks",
-    to: "/",
+    to: "/vehicles",
     icon: MaterialIcons.CarRental,
     id: 6,
   }
