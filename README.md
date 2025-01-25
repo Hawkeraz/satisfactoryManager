@@ -1,5 +1,8 @@
 <p align="left">
-  <img alt="version" src="https://img.shields.io/badge/React-18.3.11-purple"/>
+  <img alt="version" src="https://img.shields.io/badge/React-18.3.1-purple"/>
+  <img alt="license" src="https://img.shields.io/github/license/Hawkeraz/satisfactoryManager"/>
+  <img alt="license" src="https://img.shields.io/github/languages/count/Hawkeraz/satisfactoryManager"/>
+  <img alt="license" src="https://img.shields.io/github/last-commit/Hawkeraz/satisfactoryManager"/>
 </p>
 
 <p align="center">
@@ -60,7 +63,7 @@ $/frm http start
 #the api should start on port:8080
 ```
 
-### Technologies 🛠
+### Technologies 
 
 The following tools is used to build the entire project:
 
