@@ -1,6 +1,7 @@
 import * as MUIicons from "@mui/icons-material";
-import { Typography, Box, useTheme } from "@mui/material";
+import { Typography, Box, useTheme, Divider } from "@mui/material";
 import { colorTokens } from "../../theme";
+import batteryIMG from "../../assets/power.png";
 const Cards = (props) => {
   const { maxUsing, using, capacity, percent, fuse, name } = props;
 
@@ -10,83 +11,97 @@ const Cards = (props) => {
   function powerCheck(percent) {
     switch (true) {
       case percent == 100:
-        return <MUIicons.BatteryChargingFull sx={{ fontSize: "3rem" }} />;
-        break;
+        return <MUIicons.BatteryChargingFull sx={{ fontSize: "3rem", color: colors.green[400] }} />;
       case percent >= 10 && percent <= 99:
-        return <MUIicons.BatteryCharging50 sx={{ fontSize: "3rem" }} />;
-        break;
+        return <MUIicons.BatteryCharging50 sx={{ fontSize: "3rem", color: "yellow" }} />;
       case percent <= 10:
-        return <MUIicons.Battery0Bar sx={{ fontSize: "3rem" }} />;
-        break;
+        return <MUIicons.Battery0Bar sx={{ fontSize: "3rem", color: colors.red[400] }} />;
       default:
         return <MUIicons.BatteryUnknown sx={{ fontSize: "3rem" }} />;
-        break;
     }
   }
 
   return (
     <Box>
       <Box
-        borderRadius="20px"
-        padding="16px"
-        width="250px"
+        padding="20px"
+        width="300px"
         textAlign="left"
-        margin="10px"
-        boxShadow="0 4px 6px 0px rgba(0, 0, 0, 0.3)"
-        backgroundColor={colors.primary[400]}
+        margin="1rem"
+        border="1px solid #ffffff22"
+        borderRadius=".7rem"
+        backgroundColor={colors.primary[900]}
+        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+        sx={{
+          backdropFilter: "blur(7px)",
+          WebkitBackdropFilter: "blur(7px)",
+          transition: "0.5s all",
+        }}
+        overflow="hidden"
       >
-        <Box
-          display="flex"
-          flexDirection="line"
-          justifyContent="flex-start"
-          color={colors.green[400]}
-        >
+        <Box display="flex" flexDirection="column" marginBottom="1rem">
+          <img
+            src={batteryIMG}
+            alt="Battery"
+            max-width="100%"
+            height="250px"
+            style={{ objectFit: "cover", borderRadius: ".5rem" }}
+          />
+          <Typography variant="h2" marginTop="1rem">
+            Zone 1
+          </Typography>
+        </Box>
+
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box
             display="flex"
-            marginBottom="16px"
-            padding="7px"
-            borderRadius="20px"
-            boxShadow="4"
+            alignItems="center"
+            color="ee83e5"
+            fontWeight="700"
           >
-            {powerCheck(percent)}
+            <Typography> Using </Typography>
           </Box>
-
           <Box
             display="flex"
-            flexDirection="column"
-            margin="0 0 16px 0"
-            justifyContent="initial"
+            alignItems="center"
+            color="ee83e5"
+            fontWeight="700"
           >
-            <Box>
-              <Box margin="0px 10px 0 0" paddingLeft="10px">
-                <Typography sx={{ fontSize: "1.5rem" }}>Zone 1 </Typography>
-              </Box>
-            </Box>
-
-            <Box>
-              <Box paddingLeft="10px">
-                <Typography>Subtitle</Typography>
-              </Box>
-            </Box>
+            <Typography>
+              {(Math.round(using + Number.EPSILON) * 100) / 100} W /{" "}
+              {(Math.round(capacity + Number.EPSILON) * 100) / 100} W
+            </Typography>
           </Box>
         </Box>
 
-        <Box marginLeft="10px">
-          <Typography>
-            Max Using: {(Math.round(maxUsing + Number.EPSILON) * 100) / 100}
-          </Typography>
+        <Divider orientation="horizontal" variant="fullWidth" />
 
-          <Typography>
-            Using: {(Math.round(using + Number.EPSILON) * 100) / 100}
-          </Typography>
-
-          <Typography>
-            Capacity: {(Math.round(capacity + Number.EPSILON) * 100) / 100}
-          </Typography>
-
-          <Typography> Percent: {percent}</Typography>
-
-          <Typography> Fuse: {fuse.toString()}</Typography>
+        <Box display="flex" alignItems="center" marginTop="1rem">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            padding=".3rem"
+            backgroundColor={colors.primary[400]}
+            borderRadius="1rem"
+            marginRight="1rem"
+          >
+            {powerCheck(percent)}
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            padding=".3rem"
+            backgroundColor={fuse ? colors.red[300] : colors.green[600]}
+            borderRadius="1rem"
+          >
+            {fuse ? (
+              <MUIicons.FlashOff sx={{ fontSize: "3rem", color: "white" }} />
+            ) : (
+              <MUIicons.FlashOn sx={{ fontSize: "3rem", color: "white" }} />
+            )}
+          </Box>
         </Box>
       </Box>
     </Box>
