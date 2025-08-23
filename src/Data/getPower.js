@@ -67,4 +67,21 @@ export const getPower = [
     AssociatedCircuits: [0],
     FuseTriggered: true, //fuse
   },
+    {
+    Name: "Battery5",
+    CircuitGroupID: 3,
+    PowerProduction: 750,
+    PowerConsumed: 297.54583740234375, //using
+    PowerCapacity: 750, //capacity
+    PowerMaxConsumed: 472.5457458496094, //max using
+    BatteryInput: 0,
+    BatteryOutput: 0,
+    BatteryDifferential: 0,
+    BatteryPercent: 100, // percent
+    BatteryCapacity: 200,
+    BatteryTimeEmpty: "00:00:00", //time left to empty
+    BatteryTimeFull: "00:00:00", //time left to fill
+    AssociatedCircuits: [0],
+    FuseTriggered: true, //fuse
+  },
 ];

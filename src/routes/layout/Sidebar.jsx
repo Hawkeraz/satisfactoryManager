@@ -1,16 +1,17 @@
 import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SidebarHeader } from "react-pro-sidebar";
-import { Box, Divider, Typography, useTheme } from "@mui/material";
+import { Box, colors, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
-import { DataTracking, LogisticTracking, Charts } from "./sidebarMenu";
+import { DataTracking, LogisticTracking } from "./sidebarMenu";
 import logoImage from "../../assets/smt.png";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
+
   return (
     <MenuItem
       active={selected === title}
@@ -22,6 +23,10 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       <Link to={to} />
     </MenuItem>
   );
+};
+
+const typoStyle = {
+  m: "15px 0 5px 1.5rem",
 };
 
 const Sidebar = () => {
@@ -54,7 +59,7 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={collapser}>
+      <ProSidebar collapsed={collapser} sx={{ p: "0" }}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -104,7 +109,7 @@ const Sidebar = () => {
             <Typography
               variant="h6"
               color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
+              sx={typoStyle}
             >
               Data
             </Typography>
@@ -120,10 +125,10 @@ const Sidebar = () => {
               />
             ))}
 
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
+              sx={typoStyle}
             >
               Charts
             </Typography>
@@ -137,14 +142,14 @@ const Sidebar = () => {
                 setSelected={setSelected}
                 key={opts.id}
               />
-            ))}
+            ))} */}
 
             <Typography
               variant="h6"
               color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
+              sx={typoStyle}
             >
-              Tracks
+              Tracking
             </Typography>
 
             {LogisticTracking.map((opts) => (

@@ -29,24 +29,30 @@ export const DataTracking = [
 
 export const LogisticTracking = [
   {
-    title: "Train Tracks",
+    title: "Trains",
     to: "/trains",
     icon: MaterialIcons.TrainOutlined,
     id: 5,
   },
   {
-    title: "Vehicle Tracks",
+    title: "Vehicles",
     to: "/vehicles",
     icon: MaterialIcons.CarRental,
     id: 6,
+  },
+    {
+    title: "Drones",
+    to: "/drones",
+    icon: MaterialIcons.CarRental,
+    id: 7,
   }
 ];
 
-export const Charts = [
-    {
-        title: "sample",
-        to: "/chart",
-        icon: MaterialIcons.PieChartOutlined,
-        id: 7,
-    }
-]
+// export const Charts = [
+//     {
+//         title: "sample",
+//         to: "/chart",
+//         icon: MaterialIcons.PieChartOutlined,
+//         id: 7,
+//     }
+// ]
