@@ -13,6 +13,8 @@ const Batteries = () => {
       <Box height="75vh" display="flex" justifyContent="left" alignItems="left">
         {getPower.map((power, id) => (
           <Cards
+            name={power.Name}
+            circuit={power.CircuitGroupID}
             capacity={power.PowerCapacity}
             maxUsing={power.PowerMaxConsumed}
             using={power.PowerConsumed}

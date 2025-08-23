@@ -1,14 +1,11 @@
+import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { ProSidebar, Menu, MenuItem, SidebarHeader } from "react-pro-sidebar";
+import { Box, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking, Charts } from "./sidebarMenu";
-
-import * as MaterialIcons from "@mui/icons-material";
-
-import userIconDefault from "../../assets/user.png";
-
+import logoImage from "../../assets/smt.png";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -64,59 +61,37 @@ const Sidebar = () => {
             onClick={() => setCollapser(!collapser)}
             icon={collapser ? <MaterialIcons.MenuOutlined /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
               color: colors.grey[100],
             }}
           >
             {!collapser && (
               <Box
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
-                ml="15px"
+                margin="0.25rem"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Satisfactory
-                </Typography>
-                <IconButton onClick={() => setCollapser(!collapser)}>
-                  <MaterialIcons.MenuOutlined />
-                </IconButton>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  ml="1rem"
+                >
+                  <img
+                    alt="logoImage"
+                    width="270px"
+                    height="75px"
+                    src={logoImage}
+                  />
+                </Box>
               </Box>
             )}
           </MenuItem>
-
-          {/* USER */}
-          {!collapser && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={userIconDefault}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  USERNAME
-                </Typography>
-                <Typography variant="h5" color={colors.green[500]}>
-                  USER LEVEL
-                </Typography>
-              </Box>
-            </Box>
-          )}
+          <Divider />
 
           {/* Menu Items */}
 
-          <Box paddingLeft={collapser ? undefined : "10%"}>
+          <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
             <Item
               title="News"
               to="/news"

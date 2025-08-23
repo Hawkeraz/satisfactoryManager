@@ -21,8 +21,8 @@ const News = (props) => {
         <Typography variant="h6"> {formatDate(date)} </Typography>
       </Box>
       <Divider orientation="horizontal" variant="fullWidth" />
-      <Box paddingTop="5px">
-        <Typography whiteSpace="pre-line"> {description} </Typography>
+      <Box display="flex" flexDirection="column" paddingTop="5px" height="50%">
+        <Typography whiteSpace="pre-wrap"> {description} </Typography>
       </Box>
     </Box>
   );

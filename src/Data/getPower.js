@@ -1,5 +1,6 @@
 export const getPower = [
   {
+    Name: "Battery1",
     CircuitGroupID: 0,
     PowerProduction: 14.991029739379883,
     PowerConsumed: 0,
@@ -16,6 +17,7 @@ export const getPower = [
     FuseTriggered: false,
   },
   {
+    Name: "Battery2",
     CircuitGroupID: 1,
     PowerProduction: 27.482479095458984,
     PowerConsumed: 0.10000000149011612,
@@ -32,6 +34,7 @@ export const getPower = [
     FuseTriggered: false,
   },
   {
+    Name: "Battery3",
     CircuitGroupID: 2,
     PowerProduction: 36.1094970703125,
     PowerConsumed: 0.10000000149011612,
@@ -48,6 +51,7 @@ export const getPower = [
     FuseTriggered: false,
   },
   {
+    Name: "Battery4",
     CircuitGroupID: 3,
     PowerProduction: 750,
     PowerConsumed: 297.54583740234375, //using
@@ -61,6 +65,6 @@ export const getPower = [
     BatteryTimeEmpty: "00:00:00", //time left to empty
     BatteryTimeFull: "00:00:00", //time left to fill
     AssociatedCircuits: [0],
-    FuseTriggered: false, //fuse
+    FuseTriggered: true, //fuse
   },
 ];
