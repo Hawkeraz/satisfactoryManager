@@ -1,11 +1,10 @@
 import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SidebarHeader } from "react-pro-sidebar";
-import { Box, colors, Divider, Typography, useTheme } from "@mui/material";
+import { Box, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking } from "./sidebarMenu";
-import logoImage from "../../assets/smt.png";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -82,12 +81,9 @@ const Sidebar = () => {
                   alignItems="center"
                   ml="1rem"
                 >
-                  <img
-                    alt="logoImage"
-                    width="270px"
-                    height="75px"
-                    src={logoImage}
-                  />
+                  <Typography variant="h3" color={colors.grey[100]}>
+                    SMT
+                  </Typography>
                 </Box>
               </Box>
             )}
@@ -105,14 +101,6 @@ const Sidebar = () => {
               setSelected={setSelected}
               key={0}
             />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={typoStyle}
-            >
-              Data
-            </Typography>
 
             {DataTracking.map((opts) => (
               <Item
@@ -143,14 +131,6 @@ const Sidebar = () => {
                 key={opts.id}
               />
             ))} */}
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={typoStyle}
-            >
-              Tracking
-            </Typography>
 
             {LogisticTracking.map((opts) => (
               <Item

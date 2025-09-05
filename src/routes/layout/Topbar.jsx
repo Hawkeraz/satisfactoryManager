@@ -1,7 +1,6 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, colorTokens } from "../../theme";
-import InputBase from "@mui/material/InputBase";
 import * as MaterialIcons from "@mui/icons-material";
 
 const Topbar = () => {

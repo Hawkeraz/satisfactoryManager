@@ -43,7 +43,7 @@ export const LogisticTracking = [
     {
     title: "Drones",
     to: "/drones",
-    icon: MaterialIcons.CarRental,
+    icon: MaterialIcons.ConnectingAirportsOutlined,
     id: 7,
   }
 ];
