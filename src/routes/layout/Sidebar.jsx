@@ -1,19 +1,16 @@
+import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { ProSidebar, Menu, MenuItem, SidebarHeader } from "react-pro-sidebar";
+import { Box, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
-import { DataTracking, LogisticTracking, Charts } from "./sidebarMenu";
-
-import * as MaterialIcons from "@mui/icons-material";
-
-import userIconDefault from "../../assets/user.png";
-
+import { DataTracking, LogisticTracking } from "./sidebarMenu";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
+
   return (
     <MenuItem
       active={selected === title}
@@ -27,11 +24,15 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
+const typoStyle = {
+  m: "15px 0 5px 1.5rem",
+};
+
 const Sidebar = () => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
   const [collapser, setCollapser] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
+  const [selected, setSelected] = useState("news");
 
   return (
     <Box
@@ -57,73 +58,52 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={collapser}>
+      <ProSidebar collapsed={collapser} sx={{ p: "0" }}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setCollapser(!collapser)}
             icon={collapser ? <MaterialIcons.MenuOutlined /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
               color: colors.grey[100],
             }}
           >
             {!collapser && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-              >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Satisfactory
-                </Typography>
-                <IconButton onClick={() => setCollapser(!collapser)}>
-                  <MaterialIcons.MenuOutlined />
-                </IconButton>
+              <Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography
+                    variant="h3"
+                    color={colors.green[400]}
+                    bgcolor={colors.primary[700]}
+                    borderRadius={3}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    padding="0.25rem"
+                  >
+                    <MaterialIcons.BoltOutlined fontSize="large" />
+                  </Typography>
+                </Box>
               </Box>
             )}
           </MenuItem>
-
-          {/* USER */}
-          {!collapser && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={userIconDefault}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  USERNAME
-                </Typography>
-                <Typography variant="h5" color={colors.green[500]}>
-                  USER LEVEL
-                </Typography>
-              </Box>
-            </Box>
-          )}
+          <Divider />
 
           {/* Menu Items */}
 
-          <Box paddingLeft={collapser ? undefined : "10%"}>
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
-            >
-              Data
-            </Typography>
+          <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
+            <Item
+              title="News"
+              to="/news"
+              icon={<MaterialIcons.NewReleases />}
+              selected={selected}
+              setSelected={setSelected}
+              key={0}
+            />
 
             {DataTracking.map((opts) => (
               <Item
@@ -136,33 +116,6 @@ const Sidebar = () => {
               />
             ))}
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
-            >
-              Charts
-            </Typography>
-
-            {Charts.map((opts) => (
-              <Item
-                title={opts.title}
-                to={opts.to}
-                icon={<opts.icon />}
-                selected={selected}
-                setSelected={setSelected}
-                key={opts.id}
-              />
-            ))}
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0px 5px 20px" }}
-            >
-              Tracks
-            </Typography>
-
             {LogisticTracking.map((opts) => (
               <Item
                 title={opts.title}
@@ -173,7 +126,6 @@ const Sidebar = () => {
                 key={opts.id}
               />
             ))}
-
           </Box>
         </Menu>
       </ProSidebar>
