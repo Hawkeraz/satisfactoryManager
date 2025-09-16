@@ -1,6 +1,6 @@
+import * as MaterialIcons from "@mui/icons-material";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { Box, Typography, useTheme } from "@mui/material";
-import * as MaterialIcons from "@mui/icons-material";
 
 import { colorTokens } from "../theme";
 
@@ -33,8 +33,8 @@ const LineGraph = (props) => {
           flexDirection="row"
           pb={"0.5rem"}
         >
-          <Typography variant="h3" padding="0.5rem" pl={"1rem"}>
-            <MaterialIcons.LocalActivity fontSize="large" />
+          <Typography variant="h3" padding="0.5rem" pl="1rem">
+            <MaterialIcons.BarChart fontSize="large" />
           </Typography>
           <Typography variant="h3" pb={"0.5rem"}>
             {title}
@@ -51,7 +51,7 @@ const LineGraph = (props) => {
                 color: colors.green[400],
               },
             ]}
-            height={500}
+            height={530}
             width={1100}
             grid={{ horizontal: true }}
           />

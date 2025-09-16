@@ -1,5 +1,6 @@
 import { Tracker } from "../../components/tracker";
 import { LineGraph } from "../../components/lineChart";
+import { SemiCircleChart } from "../../components/pieChart";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import * as MUIicons from "@mui/icons-material";
@@ -63,7 +64,9 @@ const DashboardLayout = () => {
         <Grid {...rowTracker} size={9}>
           <LineGraph title="Tickets Overtime" data={sampleData} />
         </Grid>
-        <Grid {...rowTracker}>WIP</Grid>
+        <Grid {...rowTracker}>
+          <SemiCircleChart title="Power Management" />
+        </Grid>
       </Grid>
     </Box>
   );
