@@ -1,4 +1,6 @@
 import { Tracker } from "../../components/tracker";
+import { LineGraph } from "../../components/lineChart";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import * as MUIicons from "@mui/icons-material";
 
@@ -40,20 +42,30 @@ const Trackers = [
   },
 ];
 
+const sampleData = [1000, 1425, 950, 1700, 1200];
+
 const DashboardLayout = () => {
   return (
-    <Grid container {...mainGrid}>
-      {Trackers.map((tracker, id) => (
-        <Grid {...rowTracker} key={id}>
-          <Tracker
-            key={id}
-            title={tracker.title}
-            amount={tracker.amount}
-            icon={tracker.icon}
-          />
+    <Box>
+      <Grid container {...mainGrid}>
+        {Trackers.map((tracker, id) => (
+          <Grid {...rowTracker} key={id}>
+            <Tracker
+              key={id}
+              title={tracker.title}
+              amount={tracker.amount}
+              icon={tracker.icon}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Grid container {...mainGrid} mt={2}>
+        <Grid {...rowTracker} size={9}>
+          <LineGraph title="Tickets Overtime" data={sampleData} />
         </Grid>
-      ))}
-    </Grid>
+        <Grid {...rowTracker}>WIP</Grid>
+      </Grid>
+    </Box>
   );
 };
 

@@ -1,17 +1,13 @@
 import { Cards } from "./card";
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 import Header from "../../components/Header";
 import { getPower } from "../../Data/getPower";
-import { colorTokens } from "../../theme";
 
 const Batteries = () => {
-  const theme = useTheme();
-  const colors = colorTokens(theme.palette.mode);
-
   return (
-    <Box m="20px">
+    <Box m="0px 20px 20px 20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="BATTERIES" subtitle="Check your circuits" />
       </Box>

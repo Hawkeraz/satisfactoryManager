@@ -69,20 +69,23 @@ const Sidebar = () => {
             }}
           >
             {!collapser && (
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                margin="0.25rem"
-              >
+              <Box>
                 <Box
                   display="flex"
-                  justifyContent="center"
+                  justifyContent="space-between"
                   alignItems="center"
-                  ml="1rem"
                 >
-                  <Typography variant="h3" color={colors.grey[100]}>
-                    SMT
+                  <Typography
+                    variant="h3"
+                    color={colors.green[400]}
+                    bgcolor={colors.primary[700]}
+                    borderRadius={3}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    padding="0.25rem"
+                  >
+                    <MaterialIcons.BoltOutlined fontSize="large" />
                   </Typography>
                 </Box>
               </Box>
@@ -112,25 +115,6 @@ const Sidebar = () => {
                 key={opts.id}
               />
             ))}
-
-            {/* <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={typoStyle}
-            >
-              Charts
-            </Typography>
-
-            {Charts.map((opts) => (
-              <Item
-                title={opts.title}
-                to={opts.to}
-                icon={<opts.icon />}
-                selected={selected}
-                setSelected={setSelected}
-                key={opts.id}
-              />
-            ))} */}
 
             {LogisticTracking.map((opts) => (
               <Item
