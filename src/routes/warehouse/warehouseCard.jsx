@@ -19,16 +19,15 @@ const WarehouseCard = (props) => {
   const colors = colorTokens(theme.palette.mode);
 
   useEffect(() => {
-    setImage(
-      import.meta.env.VITE_SATISFACTORY_API + "/Icons/" + imageCode + ".png"
-    );
+    const imageUrl = `${import.meta.env.VITE_SATISFACTORY_API}/Icons/${imageCode}.png`;
+    setImage(imageUrl);
   }, []);
 
   function status(Tag, value, siUnit) {
     return (
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box display="flex" alignItems="center" color="ee83e5" fontWeight="700">
-          <Typography marginBottom="0.25rem" color={colors.grey[300]}>
+          <Typography marginBottom="0.2rem" color={colors.grey[300]}>
             {Tag}
           </Typography>
         </Box>
@@ -41,18 +40,18 @@ const WarehouseCard = (props) => {
     );
   }
 
-  function itemType(type) {
-    switch (type) {
-      case "Solid":
-        return <MUIicons.Hexagon sx={{ fontSize: "1rem" }} />;
-      default:
-        return <MUIicons.WaterDrop sx={{ fontSize: "1rem" }} />;
-    }
+  function getIconForType(type) {
+    const iconMap = {
+      Solid: <MUIicons.Hexagon sx={{ fontSize: "1rem" }} />,
+      default: <MUIicons.WaterDrop sx={{ fontSize: "1rem" }} />,
+    };
+
+    return iconMap[type] || iconMap.default;
   }
 
   return (
     <Card sx={{ backgroundColor: colors.primary[400] }}>
-      <Box margin="4rem" borderRadius="8px">
+      <Box margin="3rem" borderRadius="8px">
         <CardMedia component="img" image={image} alt="warehouse image" />
       </Box>
 
@@ -69,7 +68,7 @@ const WarehouseCard = (props) => {
             {name}
           </Typography>
           <Typography variant="h4" marginBottom="1rem" fontWeight="700">
-            <MouseHoverPopover mainText={itemType(type)} description={type} />
+            <MouseHoverPopover mainText={getIconForType(type)} description={type} />
           </Typography>
         </Box>
         {status("Prod. Rate", pRate, "/min")}
