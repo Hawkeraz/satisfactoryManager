@@ -3,21 +3,20 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { PieChart } from "@mui/x-charts/PieChart";
 
 import { colorTokens } from "../theme";
-import { seriesConfig } from "@mui/x-charts/ScatterChart/seriesConfig";
 
 const SemiCircleChart = (props) => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
-  const { title } = props;
+  const { title, consuming, generating } = props;
 
   const data = [
-    { label: "Generating", value: 400, color: colors.green[400] },
-    { label: "Consuming", value: 300, color: colors.red[400] },
+    { label: "Generating", value: generating || "0", color: colors.green[400] },
+    { label: "Consuming", value: consuming || "0", color: colors.red[400] },
   ];
 
   const settings = {
     margin: { right: 5 },
-    width: 300,
+    width:300,
     height: 500,
   };
 

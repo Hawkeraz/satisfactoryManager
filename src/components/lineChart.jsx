@@ -42,10 +42,10 @@ const LineGraph = (props) => {
         </Box>
         <Box pt={"1rem"}>
           <LineChart
-            xAxis={[{ data: [1, 2, 3, 4, 5] }]}
+            xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9] }]}
             series={[
               {
-                data: data,
+                data: data || [0, 0, 0, 0, 0, 0, 0, 0, 0],
                 baseline: "min",
                 showMark: false,
                 color: colors.green[400],

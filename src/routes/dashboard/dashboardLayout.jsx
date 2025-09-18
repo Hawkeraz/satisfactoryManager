@@ -17,35 +17,66 @@ const rowTracker = {
   size: "grow",
 };
 
-// ----- Sample Data -------- //
-const Trackers = [
-  {
-    title: "Date",
-    amount: new Date()
-      .toLocaleString("pt-BR", { timeZone: "UTC" })
-      .split(",")[0],
-    icon: <MUIicons.CalendarMonthOutlined />,
-  },
-  {
-    title: "Total Energy Generated",
-    amount: "100mw",
-    icon: <MUIicons.BoltOutlined />,
-  },
-  {
-    title: "Sample",
-    amount: "10",
-    icon: <MUIicons.BlockOutlined />,
-  },
-  {
-    title: "Tickets",
-    amount: "10",
-    icon: <MUIicons.LocalActivity />,
-  },
-];
+const DashboardLayout = (props) => {
+  const { sinkData, energyData } = props;
 
-const sampleData = [1000, 1425, 950, 1700, 1200];
+  const Trackers = [
+    {
+      title: "Date",
+      amount: new Date()
+        .toLocaleString("pt-BR", { timeZone: "UTC" })
+        .split(",")[0],
+      icon: <MUIicons.CalendarMonthOutlined />,
+    },
+    {
+      title: "Total Energy Generated",
+      amount: `${getCapacityValue(energyData)} mW` || "-",
+      icon: <MUIicons.BoltOutlined />,
+    },
+    {
+      title: "Total Energy Consumed",
+      amount: `${getTotalConsumed(energyData)} mW` || "-",
+      icon: <MUIicons.BoltOutlined />,
+    },
+    {
+      title: "Tickets",
+      amount: sinkData.NumCoupon || "-",
+      icon: <MUIicons.LocalActivity />,
+    },
+  ];
 
-const DashboardLayout = () => {
+  function getOutputValue(value) {
+    const powerConsumption = value.reduce(
+      (acc, currentItem) => acc + currentItem.PowerConsumed,
+      0
+    );
+    return Math.round((powerConsumption + Number.EPSILON) * 100) / 100;
+  }
+
+  function getInputValue(value) {
+    const powerProduction = value.reduce(
+      (acc, currentItem) => acc + currentItem.PowerProduction,
+      0
+    );
+    return Math.round((powerProduction + Number.EPSILON) * 100) / 100;
+  }
+
+  function getCapacityValue(value) {
+    const powerCapacity = value.reduce(
+      (acc, currentItem) => acc + currentItem.PowerCapacity,
+      0
+    );
+    return Math.round((powerCapacity + Number.EPSILON) * 100) / 100;
+  }
+
+  function getTotalConsumed(value) {
+    const powerMaxConsume = value.reduce(
+      (acc, currentItem) => acc + currentItem.PowerMaxConsumed,
+      0
+    );
+    return Math.round((powerMaxConsume + Number.EPSILON) * 100) / 100;
+  }
+
   return (
     <Box>
       <Grid container {...mainGrid}>
@@ -62,10 +93,14 @@ const DashboardLayout = () => {
       </Grid>
       <Grid container {...mainGrid} mt={2}>
         <Grid {...rowTracker} size={9}>
-          <LineGraph title="Tickets Overtime" data={sampleData} />
+          <LineGraph title="Tickets Overtime" data={sinkData.GraphPoints} />
         </Grid>
         <Grid {...rowTracker}>
-          <SemiCircleChart title="Power Management" />
+          <SemiCircleChart
+            title="Power Management"
+            consuming={getOutputValue(energyData)}
+            generating={getInputValue(energyData)}
+          />
         </Grid>
       </Grid>
     </Box>
