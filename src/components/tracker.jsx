@@ -1,11 +1,12 @@
-import { Box } from "@mui/system";
+import { borderRadius, Box } from "@mui/system";
 import { Typography, useTheme } from "@mui/material";
 import { colorTokens } from "../theme";
+import { ProgressBar } from "./progressBar";
 
 const Tracker = (props) => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
-  const { title, amount, icon } = props;
+  const { title, amount, icon, progress, percent } = props;
 
   const upperBox = {
     backgroundColor: colors.green[700],
@@ -15,9 +16,9 @@ const Tracker = (props) => {
 
   const lowerBox = {
     backgroundColor: colors.primary[400],
-    borderRadius: "0 0 6px 6px",
     display: "flex",
     flexDirection: "column",
+    borderRadius: "0 0 6px 6px",
   };
 
   const innerBox = {
@@ -40,11 +41,12 @@ const Tracker = (props) => {
           </Typography>
         </Box>
         <Box {...innerBox}>
-          <Typography variant="h4" padding="0.5rem"/>
+          <Typography variant="h4" padding="0.5rem" />
           <Typography variant="h1" padding="0.5rem">
             {amount}
           </Typography>
         </Box>
+        {progress ? <ProgressBar value={percent} /> : null}
       </Box>
     </Box>
   );

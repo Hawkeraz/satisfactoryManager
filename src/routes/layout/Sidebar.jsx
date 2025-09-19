@@ -1,6 +1,6 @@
 import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem, SidebarHeader } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
@@ -37,6 +37,10 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
+        "& .pro-menu": {
+          paddingTop: "5px",
+        },
+
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
@@ -63,7 +67,7 @@ const Sidebar = () => {
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setCollapser(!collapser)}
-            icon={collapser ? <MaterialIcons.MenuOutlined /> : undefined}
+            icon={collapser ? <MaterialIcons.MenuOutlined /> : <MaterialIcons.ArrowBackOutlined />}
             style={{
               color: colors.grey[100],
             }}
@@ -72,21 +76,9 @@ const Sidebar = () => {
               <Box>
                 <Box
                   display="flex"
-                  justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Typography
-                    variant="h3"
-                    color={colors.green[400]}
-                    bgcolor={colors.primary[700]}
-                    borderRadius={3}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    padding="0.25rem"
-                  >
-                    <MaterialIcons.BoltOutlined fontSize="large" />
-                  </Typography>
+                  Satisfactory Manager
                 </Box>
               </Box>
             )}

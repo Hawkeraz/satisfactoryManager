@@ -26,7 +26,6 @@ const Batteries = () => {
               name={power.Name}
               circuit={power.CircuitGroupID}
               capacity={power.PowerCapacity}
-              maxUsing={power.PowerMaxConsumed}
               using={power.PowerConsumed}
               percent={power.BatteryPercent}
               fuse={power.FuseTriggered}
