@@ -1,26 +1,26 @@
 import { Box, useTheme } from "@mui/material";
 import { colorTokens } from "../../theme";
-import { WarehouseCard } from "./warehouseCard";
+import { FactoryCard } from "./factoryCard";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
 import Header from "../../components/Header";
 import Grid from "@mui/material/Grid2";
 
-const Warehouse = () => {
-  const [itemStorage, setItemStorage] = useState([])
+const FactoryOverview = () => {
+  const [worldItems, setWorldItems] = useState([])
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
 
   useEffect(() => {
-    axiosInstance.get("/getWorldInv").then((response) => setItemStorage(response.data));
+    axiosInstance.get("/getProdStats").then((response) => setWorldItems(response.data));
   }, []);
 
   return (
     <Box m="0px 20px 20px 20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
-          title="Warehouse"
-          subtitle="Detailed Information about item in storages"
+          title="Factory Overview"
+          subtitle="Detailed Information about item production"
         />
       </Box>
       <Grid
@@ -32,13 +32,15 @@ const Warehouse = () => {
         overflow="auto"
         sx={{ scrollbarWidth: "none" }}
       >
-        {itemStorage.map((item, id) => (
+        {worldItems.map((item, id) => (
           <Grid key={id} size={{ xs: 2, sm: 4, md: 3 }}>
-            <WarehouseCard
+            <FactoryCard
               name={item.Name}
               imageCode={item.ClassName}
-              amount={item.Amount}
-              slotSize={item.MaxAmount}
+              pRate={item.MaxProd}
+              cRate={item.MaxConsumed}
+              efficiency={item.ProdPercent}
+              type={item.Type}
             />
           </Grid>
         ))}
@@ -47,4 +49,4 @@ const Warehouse = () => {
   );
 };
 
-export { Warehouse };
+export { FactoryOverview };

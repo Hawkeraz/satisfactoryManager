@@ -1,9 +1,9 @@
 import * as MUIicons from "@mui/icons-material";
-import { Typography, Box, useTheme, Divider, Button, Card, CardMedia, Skeleton } from "@mui/material";
+import { Typography, Box, useTheme, Divider, Button, Card, CardMedia } from "@mui/material";
 import { colorTokens } from "../../theme";
 import batteryIMG from "../../assets/power.png";
 const Cards = (props) => {
-  const { using, capacity, percent, fuse, name } = props;
+  const { maxUsing, using, capacity, percent, fuse, name } = props;
 
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
@@ -34,11 +34,31 @@ const Cards = (props) => {
   }
 
   return (
-    percent === null ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
-    <Card sx={{ backgroundColor: colors.primary[400] }}>
-      <Box borderRadius="8px">
-        <CardMedia component="img" image={batteryIMG} alt="warehouse image" />
-      </Box>
+    <Box>
+      <Box
+        width="350px"
+        textAlign="left"
+        margin="1rem"
+        border="1px solid #ffffff22"
+        borderRadius=".7rem"
+        backgroundColor={colors.primary[400]}
+        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+        sx={{
+          backdropFilter: "blur(7px)",
+          WebkitBackdropFilter: "blur(7px)",
+          transition: "0.5s all",
+        }}
+        overflow="hidden"
+      >
+        <Box display="flex" flexDirection="column">
+          <img
+            src={batteryIMG}
+            alt="Battery"
+            max-width="100%"
+            height="250px"
+            style={{ objectFit: "cover", borderRadius: ".5rem" }}
+          />
+        </Box>
 
         <Box display="flex" flexDirection="column" padding="1rem">
           <Typography variant="h3" marginBottom="1rem" fontWeight="700">
@@ -81,7 +101,7 @@ const Cards = (props) => {
             justifyContent="space-between"
           >
             <Box marginTop="1rem">
-              <Button variant="outlined" color={colors.primary[400]}> Edit </Button>
+              <Button variant="outlined" color="secondary"> Edit </Button>
             </Box>
             <Box
               display="flex"
@@ -92,6 +112,7 @@ const Cards = (props) => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                backgroundColor={colors.primary[400]}
                 borderRadius="0.5rem"
                 marginRight="0.25rem"
               >
@@ -116,7 +137,8 @@ const Cards = (props) => {
             </Box>
           </Box>
         </Box>
-    </Card>
+      </Box>
+    </Box>
   );
 };
 

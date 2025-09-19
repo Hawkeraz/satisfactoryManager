@@ -14,7 +14,7 @@ export const DataTracking = [
     id: 2,
   },
   {
-    title: "Factory Manager",
+    title: "Factory Overview",
     to: "/factories",
     icon: MaterialIcons.FactoryOutlined,
     id: 3,

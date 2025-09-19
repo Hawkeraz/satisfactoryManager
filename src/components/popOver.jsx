@@ -3,7 +3,7 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 
 const MouseHoverPopover = (props) => {
-  const { mainText, description } = props;
+  const { mainText, description, variant, sx } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
@@ -23,6 +23,8 @@ const MouseHoverPopover = (props) => {
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
+        variant={variant}
+        sx={sx}
       >
         {mainText}
       </Typography>
