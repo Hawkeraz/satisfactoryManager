@@ -63,7 +63,7 @@ const WarehouseCard = (props) => {
       <Divider orientation="horizontal" variant="fullWidth" />
 
       <Box display="flex" flexDirection="column" padding="1rem">
-        <Typography variant="h4" marginBottom="1rem">
+        <Typography variant="h4" marginBottom="1rem" overflow= "hidden" textOverflow= "ellipsis" whiteSpace= "nowrap" >
           <MouseHoverPopover mainText={name} description={name} variant="h4" sx={{ fontWeight: "700", overflow:"hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} />
         </Typography>
         {status("Slot Size", slotSize)}
