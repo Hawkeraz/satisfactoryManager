@@ -51,7 +51,8 @@ const FactoryCard = (props) => {
   }
 
   return (
-    !imageCode ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
+    
+    !pRate ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
     <Card sx={{ backgroundColor: colors.primary[400] }}>
       <Box margin="3rem" borderRadius="8px">
         <CardMedia component="img" image={image} alt="warehouse image" />

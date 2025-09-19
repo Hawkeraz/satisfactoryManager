@@ -7,12 +7,15 @@ import Header from "../../components/Header";
 import Grid from "@mui/material/Grid2";
 
 const FactoryOverview = () => {
-  const [worldItems, setWorldItems] = useState([])
+  const [worldItems, setWorldItems] = useState([]);
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
 
   useEffect(() => {
-    axiosInstance.get("/getProdStats").then((response) => setWorldItems(response.data));
+    axiosInstance
+      .get("/getProdStats")
+      .then((response) => setWorldItems(response.data))
+      .catch(() => setApiResponse(false));
   }, []);
 
   return (

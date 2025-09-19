@@ -1,10 +1,12 @@
 import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem, SidebarFooter } from "react-pro-sidebar";
 import { Box, Divider, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking } from "./sidebarMenu";
+import { ProfilePicture } from "../../components/avatar";
+import user from "../../assets/user.png"; // import user image (mocked)
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -63,63 +65,95 @@ const Sidebar = () => {
       }}
     >
       <ProSidebar collapsed={collapser} sx={{ p: "0" }}>
-        <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
-          <MenuItem
-            onClick={() => setCollapser(!collapser)}
-            icon={collapser ? <MaterialIcons.MenuOutlined /> : <MaterialIcons.ArrowBackOutlined />}
-            style={{
-              color: colors.grey[100],
-            }}
-          >
-            {!collapser && (
-              <Box>
-                <Box
-                  display="flex"
-                  alignItems="center"
-                >
-                  Satisfactory Manager
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"space-between"}
+          height={"100vh"}
+        >
+          <Menu iconShape="square" display="flex">
+            {/* LOGO AND MENU ICON */}
+            <MenuItem
+              onClick={() => setCollapser(!collapser)}
+              icon={
+                collapser ? (
+                  <MaterialIcons.MenuOutlined />
+                ) : (
+                  <MaterialIcons.ArrowBackOutlined />
+                )
+              }
+              style={{
+                color: colors.grey[100],
+              }}
+            >
+              {!collapser && (
+                <Box>
+                  <Box display="flex" alignItems="center">
+                    Satisfactory Manager
+                  </Box>
                 </Box>
-              </Box>
-            )}
-          </MenuItem>
-          <Divider />
+              )}
+            </MenuItem>
+            <Divider />
 
-          {/* Menu Items */}
+            {/* Menu Items */}
 
-          <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
-            <Item
-              title="News"
-              to="/news"
-              icon={<MaterialIcons.NewReleases />}
-              selected={selected}
-              setSelected={setSelected}
-              key={0}
-            />
-
-            {DataTracking.map((opts) => (
+            <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
               <Item
-                title={opts.title}
-                to={opts.to}
-                icon={<opts.icon />}
+                title="News"
+                to="/news"
+                icon={<MaterialIcons.NewReleases />}
                 selected={selected}
                 setSelected={setSelected}
-                key={opts.id}
+                key={0}
               />
-            ))}
 
-            {LogisticTracking.map((opts) => (
-              <Item
-                title={opts.title}
-                to={opts.to}
-                icon={<opts.icon />}
-                selected={selected}
-                setSelected={setSelected}
-                key={opts.id}
-              />
-            ))}
-          </Box>
-        </Menu>
+              {DataTracking.map((opts) => (
+                <Item
+                  title={opts.title}
+                  to={opts.to}
+                  icon={<opts.icon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                  key={opts.id}
+                />
+              ))}
+
+              {LogisticTracking.map((opts) => (
+                <Item
+                  title={opts.title}
+                  to={opts.to}
+                  icon={<opts.icon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                  key={opts.id}
+                />
+              ))}
+            </Box>
+          </Menu>
+          <SidebarFooter style={{ textAlign: collapser ? "center" : "left" }}>
+            <Box
+              display="flex"
+              alignItems={collapser ? "center" : "flex-start"}
+              justifyContent={collapser ? "center" : "flex-start"}
+              overflow="hidden"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+            >
+              <ProfilePicture src={user} alt="user" />
+              {collapser ? null : (
+                <Box p={1}>
+                  <Typography variant="h5" color={colors.grey[100]}>
+                    John Doe
+                  </Typography>
+                  <Typography variant="h6" color={colors.green[500]}>
+                    VP Fancy Admin
+                  </Typography>
+                </Box>
+              )}
+            </Box>
+          </SidebarFooter>
+        </Box>
       </ProSidebar>
     </Box>
   );
