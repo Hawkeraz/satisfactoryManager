@@ -1,9 +1,11 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, colorTokens } from "../../theme";
+import { ProfilePicture } from "../../components/avatar";
 import * as MaterialIcons from "@mui/icons-material";
 
-const Topbar = () => {
+const Topbar = (props) => {
+  const { user } = props;
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
@@ -23,9 +25,6 @@ const Topbar = () => {
         </IconButton>
         <IconButton>
           <MaterialIcons.NotificationsOutlined />
-        </IconButton>
-        <IconButton>
-          <MaterialIcons.PersonOutlineOutlined />
         </IconButton>
       </Box>
     </Box>
