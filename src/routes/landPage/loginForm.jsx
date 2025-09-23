@@ -53,7 +53,6 @@ const LoginForm = () => {
         <GoogleLogin
           text="signing_with"
           shape="pill"
-          width="40vw"
           onSuccess={(credentialResponse) => {
             localStorage.setItem("token", credentialResponse.credential);
             Navigate("/app/news");
