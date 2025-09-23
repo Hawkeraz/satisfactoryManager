@@ -2,11 +2,13 @@ import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SidebarFooter } from "react-pro-sidebar";
 import { Box, Divider, Typography, useTheme } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking } from "./sidebarMenu";
 import { ProfilePicture } from "../../components/avatar";
-import user from "../../assets/user.png"; // import user image (mocked)
+import { googleLogout } from "@react-oauth/google";
+import IconButton from "@mui/material/IconButton";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -30,11 +32,19 @@ const typoStyle = {
   m: "15px 0 5px 1.5rem",
 };
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const { user } = props;
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
+  const Navigate = useNavigate();
+
   const [collapser, setCollapser] = useState(false);
   const [selected, setSelected] = useState("news");
+
+  function handleLogout() {
+    googleLogout();
+    Navigate("/");
+  }
 
   return (
     <Box
@@ -101,7 +111,7 @@ const Sidebar = () => {
             <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
               <Item
                 title="News"
-                to="/news"
+                to="/app/news"
                 icon={<MaterialIcons.NewReleases />}
                 selected={selected}
                 setSelected={setSelected}
@@ -134,23 +144,44 @@ const Sidebar = () => {
           <SidebarFooter style={{ textAlign: collapser ? "center" : "left" }}>
             <Box
               display="flex"
-              alignItems={collapser ? "center" : "flex-start"}
-              justifyContent={collapser ? "center" : "flex-start"}
-              overflow="hidden"
-              textOverflow="ellipsis"
-              whiteSpace="nowrap"
+              justifyContent={collapser ? "center" : "space-between"}
+              alignItems="center"
             >
-              <ProfilePicture src={user} alt="user" />
+              <Box
+                display="flex"
+                alignItems={collapser ? "center" : "flex-start"}
+                justifyContent={collapser ? "center" : "flex-start"}
+                overflow="hidden"
+                textOverflow="ellipsis"
+                whiteSpace="nowrap"
+              >
+
+                <ProfilePicture src={user.picture} alt="user" />
+                {collapser ? null : (
+                  <Box p={1}>
+                    <Typography variant="h5" color={colors.grey[100]}>
+                      {user.name}
+                    </Typography>
+                    <Typography variant="h6" color={colors.green[500]}>
+                      VP Fancy Admin
+                    </Typography>
+                  </Box>
+                )}
+              </Box>
+
               {collapser ? null : (
-                <Box p={1}>
-                  <Typography variant="h5" color={colors.grey[100]}>
-                    John Doe
-                  </Typography>
-                  <Typography variant="h6" color={colors.green[500]}>
-                    VP Fancy Admin
-                  </Typography>
-                </Box>
+
+              <Box mr=".5rem">
+                <IconButton
+                  sx={{ color: colors.red[500] }}
+                  onClick={() => handleLogout()}
+                >
+                  <MaterialIcons.Logout />
+                </IconButton>
+              </Box>
+
               )}
+
             </Box>
           </SidebarFooter>
         </Box>

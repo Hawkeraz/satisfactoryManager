@@ -3,25 +3,25 @@ import * as MaterialIcons from "@mui/icons-material";
 export const DataTracking = [
   {
     title: "Dashboard",
-    to: "/dash",
+    to: "/app/dash",
     icon: MaterialIcons.DashboardOutlined,
     id: 1,
   },
   {
     title: "Battery Switch",
-    to: "/batteries",
+    to: "/app/batteries",
     icon: MaterialIcons.Battery0BarOutlined,
     id: 2,
   },
   {
     title: "Factory Overview",
-    to: "/factories",
+    to: "/app/factories",
     icon: MaterialIcons.FactoryOutlined,
     id: 3,
   },
   {
     title: "Warehouse",
-    to: "/warehouse",
+    to: "/app/warehouse",
     icon: MaterialIcons.WarehouseOutlined,
     id: 4,
   },
@@ -30,19 +30,19 @@ export const DataTracking = [
 export const LogisticTracking = [
   {
     title: "Trains",
-    to: "/trains",
+    to: "/app/trains",
     icon: MaterialIcons.TrainOutlined,
     id: 5,
   },
   {
     title: "Vehicles",
-    to: "/vehicles",
+    to: "/app/vehicles",
     icon: MaterialIcons.CarRental,
     id: 6,
   },
     {
     title: "Drones",
-    to: "/drones",
+    to: "/app/drones",
     icon: MaterialIcons.ConnectingAirportsOutlined,
     id: 7,
   }
