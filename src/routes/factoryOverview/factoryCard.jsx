@@ -44,7 +44,8 @@ const FactoryCard = (props) => {
   function getIconForType(type) {
     const iconMap = {
       Solid: <MUIicons.Hexagon sx={{ fontSize: "1rem" }} />,
-      default: <MUIicons.WaterDrop sx={{ fontSize: "1rem" }} />,
+      Liquid: <MUIicons.WaterDrop sx={{ fontSize: "1rem" }} />,
+      Gas: <MUIicons.Cloud sx={{ fontSize: "1rem" }} />,
     };
 
     return iconMap[type] || iconMap.default;
@@ -52,7 +53,7 @@ const FactoryCard = (props) => {
 
   return (
     
-    !pRate ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
+    pRate === undefined ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
     <Card sx={{ backgroundColor: colors.primary[400] }}>
       <Box margin="3rem" borderRadius="8px">
         <CardMedia component="img" image={image} alt="warehouse image" />
