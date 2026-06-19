@@ -67,7 +67,7 @@ const Cards = (props) => {
               fontWeight="700"
             >
               <Typography color={colors.grey[300]}>
-                {(Math.round(using + Number.EPSILON) * 100) / 100} W /{" "}
+                {(Math.round(using + Number.EPSILON) * 100) / 100} W / 
                 {(Math.round(capacity + Number.EPSILON) * 100) / 100} W
               </Typography>
             </Box>

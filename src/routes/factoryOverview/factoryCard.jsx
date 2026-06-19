@@ -5,7 +5,7 @@ import {
   Typography,
   useTheme,
   Divider,
-  Skeleton
+  Skeleton,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { colorTokens } from "../../theme";
@@ -41,6 +41,7 @@ const FactoryCard = (props) => {
     );
   }
 
+
   function getIconForType(type) {
     const iconMap = {
       Solid: <MUIicons.Hexagon sx={{ fontSize: "1rem" }} />,
@@ -50,9 +51,9 @@ const FactoryCard = (props) => {
     return iconMap[type] || iconMap.default;
   }
 
-  return (
-    
-    !pRate ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
+  return !imageCode ? (
+    <Skeleton variant="rectangular" width="100%" height="100%" />
+  ) : (
     <Card sx={{ backgroundColor: colors.primary[400] }}>
       <Box margin="3rem" borderRadius="8px">
         <CardMedia component="img" image={image} alt="warehouse image" />
@@ -67,11 +68,35 @@ const FactoryCard = (props) => {
           justifyContent="space-between"
           alignItems="center"
         >
-        <Typography variant="h4" marginBottom="1rem" overflow= "hidden" textOverflow= "ellipsis" whiteSpace= "nowrap" >
-            <MouseHoverPopover mainText={name} description={name} variant="h4" sx={{ fontWeight: "700", overflow:"hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} />
+          <Typography
+            variant="h4"
+            marginBottom="1rem"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            whiteSpace="nowrap"
+          >
+            <MouseHoverPopover
+              mainText={name}
+              description={name}
+              variant="h4"
+              sx={{
+                fontWeight: "700",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            />
           </Typography>
-          <Typography variant="h4" marginBottom="1rem" fontWeight="700" mt=".3rem">
-            <MouseHoverPopover mainText={getIconForType(type)} description={type} />
+          <Typography
+            variant="h4"
+            marginBottom="1rem"
+            fontWeight="700"
+            mt=".3rem"
+          >
+            <MouseHoverPopover
+              mainText={getIconForType(type)}
+              description={type}
+            />
           </Typography>
         </Box>
         {status("Prod. Rate", pRate, "/min")}

@@ -54,12 +54,13 @@ const DashboardLayout = (props) => {
   ];
 
   function conversionValue(value, attr) {
-    const toConvert = value.reduce(
-      (acc, currentItem) => acc + currentItem[attr],
-      0
-    );
-
-    return Math.round((toConvert + Number.EPSILON) * 100) / 100;
+    if (!value) {
+      const toConvert = value.reduce(
+        (acc, currentItem) => acc + currentItem[attr],
+        0,
+      );
+      return Math.round((toConvert + Number.EPSILON) * 100) / 100;
+    } else return "-";
   }
 
   return (

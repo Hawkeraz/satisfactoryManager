@@ -7,12 +7,15 @@ import Header from "../../components/Header";
 import Grid from "@mui/material/Grid2";
 
 const Warehouse = () => {
-  const [itemStorage, setItemStorage] = useState([])
+  const [itemStorage, setItemStorage] = useState([]);
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
 
   useEffect(() => {
-    axiosInstance.get("/getWorldInv").then((response) => setItemStorage(response.data));
+    axiosInstance
+      .get("/getWorldInv")
+      .then((response) => setItemStorage(response.data))
+      .catch(() => setItemStorage([]));
   }, []);
 
   return (
@@ -27,21 +30,24 @@ const Warehouse = () => {
         container
         spacing={{ xs: 1, md: 1 }}
         columns={{ xs: 4, sm: 8, md: 24 }}
-        borderRadius="8px"
         height="77vh"
         overflow="auto"
         sx={{ scrollbarWidth: "none" }}
       >
-        {itemStorage.map((item, id) => (
-          <Grid key={id} size={{ xs: 2, sm: 4, md: 3 }}>
-            <WarehouseCard
-              name={item.Name}
-              imageCode={item.ClassName}
-              amount={item.Amount}
-              slotSize={item.MaxAmount}
-            />
-          </Grid>
-        ))}
+        {itemStorage.length > 0 ? (
+          itemStorage.map((item, id) => (
+            <Grid key={id} size={{ xs: 2, sm: 4, md: 3 }}>
+              <WarehouseCard
+                name={item.Name}
+                imageCode={item.ClassName}
+                amount={item.Amount}
+                slotSize={item.MaxAmount}
+              />
+            </Grid>
+          ))
+        ) : (
+          <h3>No items found</h3>
+        )}
       </Grid>
     </Box>
   );

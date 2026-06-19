@@ -15,13 +15,12 @@ const Batteries = () => {
         container
         spacing={{ xs: 1, md: 1 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
-        borderRadius="8px"
         height="77vh"
         overflow="auto"
         sx={{scrollbarWidth: "none"}}
       >
         {getPower.map((power, id) => (
-          <Grid key={id} size={{ xs: 2, sm: 4, md: 3 }}>
+          <Grid key={id} size={{ xs: 2, sm: 4, md: 2 }}>
             <Cards
               name={power.Name}
               circuit={power.CircuitGroupID}

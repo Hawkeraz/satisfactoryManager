@@ -15,7 +15,7 @@ const FactoryOverview = () => {
     axiosInstance
       .get("/getProdStats")
       .then((response) => setWorldItems(response.data))
-      .catch(() => setApiResponse(false));
+      .catch(() => setWorldItems([]));
   }, []);
 
   return (
@@ -30,12 +30,11 @@ const FactoryOverview = () => {
         container
         spacing={{ xs: 1, md: 1 }}
         columns={{ xs: 4, sm: 8, md: 24 }}
-        borderRadius="8px"
         height="77vh"
         overflow="auto"
         sx={{ scrollbarWidth: "none" }}
       >
-        {worldItems.map((item, id) => (
+        {worldItems.length > 0 ? worldItems.map((item, id) => (
           <Grid key={id} size={{ xs: 2, sm: 4, md: 3 }}>
             <FactoryCard
               name={item.Name}
@@ -46,7 +45,7 @@ const FactoryOverview = () => {
               type={item.Type}
             />
           </Grid>
-        ))}
+        )): <h3>No Data to Display!</h3>}
       </Grid>
     </Box>
   );
