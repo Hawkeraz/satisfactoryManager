@@ -54,7 +54,7 @@ const DashboardLayout = (props) => {
   ];
 
   function conversionValue(value, attr) {
-    if (!value) {
+    if (value) {
       const toConvert = value.reduce(
         (acc, currentItem) => acc + currentItem[attr],
         0,

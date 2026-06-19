@@ -7,7 +7,7 @@ import "./global.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENTID}>
         <App />
     </GoogleOAuthProvider>
   </StrictMode>
