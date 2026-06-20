@@ -1,14 +1,15 @@
 import * as MaterialIcons from "@mui/icons-material";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SidebarFooter } from "react-pro-sidebar";
-import { Box, Divider, Typography, useTheme } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Box, Divider, Typography, useTheme, IconButton } from "@mui/material";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking } from "./sidebarMenu";
 import { ProfilePicture } from "../../components/avatar";
-import { googleLogout } from "@react-oauth/google";
-import IconButton from "@mui/material/IconButton";
+
+import { Auth } from "@supabase/auth-ui-react";
+import { createClient } from "@supabase/supabase-js";
+
 import "react-pro-sidebar/dist/css/styles.css";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -32,19 +33,26 @@ const typoStyle = {
   m: "15px 0 5px 1.5rem",
 };
 
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_CLIENTID,
+);
+
 const Sidebar = (props) => {
-  const { user } = props;
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
   const Navigate = useNavigate();
+  const { user } = props;
 
   const [collapser, setCollapser] = useState(false);
   const [selected, setSelected] = useState("news");
 
-  function handleLogout() {
-    googleLogout();
+  async function handleLogout() {
+    const { error } = await supabase.auth.signOut();
     Navigate("/");
   }
+
+  console.log(user);
 
   return (
     <Box
@@ -155,33 +163,29 @@ const Sidebar = (props) => {
                 textOverflow="ellipsis"
                 whiteSpace="nowrap"
               >
-
-                <ProfilePicture src={user.picture} alt="user" />
+                <ProfilePicture src={user.user_metadata.avatar_url} alt="user" />
                 {collapser ? null : (
                   <Box p={1}>
                     <Typography variant="h5" color={colors.grey[100]}>
-                      {user.name}
+                      {user.user_metadata.name}
                     </Typography>
                     <Typography variant="h6" color={colors.green[500]}>
-                      VP Fancy Admin
+                      {user.app_metadata.provider}
                     </Typography>
                   </Box>
                 )}
               </Box>
 
               {collapser ? null : (
-
-              <Box mr=".5rem">
-                <IconButton
-                  sx={{ color: colors.red[500] }}
-                  onClick={() => handleLogout()}
-                >
-                  <MaterialIcons.Logout />
-                </IconButton>
-              </Box>
-
+                <Box mr=".5rem">
+                  <IconButton
+                    sx={{ color: colors.red[500] }}
+                    onClick={() => handleLogout()}
+                  >
+                    <MaterialIcons.Logout />
+                  </IconButton>
+                </Box>
               )}
-
             </Box>
           </SidebarFooter>
         </Box>

@@ -1,6 +1,5 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { VideoPlayback } from "./videoPlayback";
-import { LoginForm } from "./loginForm";
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
@@ -22,7 +21,7 @@ const LandingPage = () => {
 
   supabase.auth.onAuthStateChange((event, session) => {
     if (event === "SIGNED_IN") {
-      navigate("/app");
+      navigate("/redirect");
     } else {
       navigate("/");
     }

@@ -7,6 +7,7 @@ import {
   Batteries,
   FactoryOverview,
   LandingPage,
+  Redirect
 } from "./routes";
 import { ProtectedRoutes } from "./protectedRoutes";
 
@@ -14,6 +15,7 @@ const Router = () => {
   return (
     <Routes>
       <Route index path="/" element={<LandingPage />} />
+      <Route index path="/redirect" element={<Redirect />} />
       <Route path="app" element={<ProtectedRoutes />}>
         <Route path="news" index element={<Home />} />
         <Route path="dash" element={<Dashboard />} />

@@ -1,15 +1,23 @@
 import { Topbar, Sidebar } from "./routes";
 import { Outlet } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const ProtectedRoutes = () => {
-  const userCredentials = jwtDecode(localStorage.getItem("token"));
+  const location = useLocation();
+  const user = location.state?.user;
+
+  const [userData, setUserData] = useState(user);
+
+  useEffect(() => {
+    setUserData(user);
+  }, []);
 
   return (
     <div className="app">
-      <Sidebar user={userCredentials} />
+      <Sidebar user={userData} />
       <main className="content">
-        <Topbar user={userCredentials} />
+        <Topbar />
         <Outlet />
       </main>
     </div>
