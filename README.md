@@ -8,7 +8,7 @@
 <p align="center">
  <a href="#features">Roadmap</a> • 
  <a href="#technologies">Technologies</a> • 
- <a href="#screenshots">Author</a> • 
+ <a href="#screenshots">Screenshots</a> • 
  <a href="#author">Author</a>
 </p>
 
