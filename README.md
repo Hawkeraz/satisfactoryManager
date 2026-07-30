@@ -15,7 +15,7 @@
 	🚧  Satisfactory Manager 🚀 Under Development...  🚧
 </h4>
 
-<img alt="test" src="https://media.discordapp.net/attachments/856617424748281886/1332635238836469793/image.png?ex=6795f8c8&is=6794a748&hm=638d8e0b2ccd9939a6f80b0bde03a7cac7b50e64b78a7086dee7bef856c397fd&=&format=webp&quality=lossless&width=1358&height=676"/>
+<img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094058659921/2.png?ex=6a6c86cd&is=6a6b354d&hm=9cdec17aa7bd26901195d32c66ca534d4e3c117ae465dcfebee1493b9a9961f3&=&format=webp&quality=lossless&width=1740&height=864"/>
 
 ### Features
 
