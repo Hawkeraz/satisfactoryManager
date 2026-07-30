@@ -16,13 +16,16 @@
 </h4>
 
 <img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094058659921/2.png?ex=6a6c86cd&is=6a6b354d&hm=9cdec17aa7bd26901195d32c66ca534d4e3c117ae465dcfebee1493b9a9961f3&=&format=webp&quality=lossless&width=1740&height=864"/>
+```
+First Look at Project
+```
 
 ### Features
 
-- [ ] Google signup
+- [X] Google/Discord signup
 - [x] Dark/Light Mode
 - [ ] Notifications
-- [ ] Profile Options
+- [X] Profile Options
 - [x] Batteries visualize
 - [ ] Vehicles tracking
 - [ ] Trains tracking
