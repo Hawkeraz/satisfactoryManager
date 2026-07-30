@@ -16,9 +16,13 @@
 </h4>
 
 <img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094058659921/2.png?ex=6a6c86cd&is=6a6b354d&hm=9cdec17aa7bd26901195d32c66ca534d4e3c117ae465dcfebee1493b9a9961f3&=&format=webp&quality=lossless&width=1740&height=864"/>
-```bash
-First Look at Project
-```
+First look at the project
+
+<img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349093710397561/1.png?ex=6a6c86cd&is=6a6b354d&hm=d4a5c53b42e546ff827686459eb5bb81dd58568d7fba3245d99191171b7741e9&=&format=webp&quality=lossless&width=1738&height=864"/>
+Login Screen
+
+<img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349095157563463/5.png?ex=6a6c86cd&is=6a6b354d&hm=a1124a577cafb2be4434a94ec4348da1632d693647855418237ea562673848a3&=&format=webp&quality=lossless&width=1768&height=478"/>
+Coupoun Screen (in game) side to side with the dashboard
 
 ### Features
 
