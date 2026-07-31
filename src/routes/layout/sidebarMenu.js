@@ -8,13 +8,13 @@ export const DataTracking = [
     id: 1,
   },
   {
-    title: "Battery Switch",
+    title: "Batteries",
     to: "/app/batteries",
     icon: MaterialIcons.Battery0BarOutlined,
     id: 2,
   },
   {
-    title: "Factory Overview",
+    title: "Production",
     to: "/app/factories",
     icon: MaterialIcons.FactoryOutlined,
     id: 3,

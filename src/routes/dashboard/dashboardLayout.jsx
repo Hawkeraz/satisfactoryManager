@@ -1,7 +1,7 @@
 import { Tracker } from "../../components/tracker";
 import { LineGraph } from "../../components/lineChart";
 import { SemiCircleChart } from "../../components/pieChart";
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import * as MUIicons from "@mui/icons-material";
 
@@ -81,13 +81,22 @@ const DashboardLayout = (props) => {
       </Grid>
       <Grid container {...mainGrid} mt={2}>
         <Grid {...rowTracker} size={9}>
-          <LineGraph title="Tickets Overtime" data={sinkData.GraphPoints} />
+          {sinkData.GraphPoints ? (
+            <LineGraph title="Tickets Overtime" data={sinkData.GraphPoints} />
+          ) : (
+            <Skeleton
+              variant="rectangular"
+              width="100%"
+              height="99.5%"
+              animation="wave"
+            />
+          )}
         </Grid>
         <Grid {...rowTracker}>
           <SemiCircleChart
             title="Power Management"
             consuming={conversionValue(energyData, "PowerConsumed")}
-            generating={conversionValue(energyData, "PowerProduction")}
+            generating={conversionValue(energyData, "PowerCapacity")}
           />
         </Grid>
       </Grid>

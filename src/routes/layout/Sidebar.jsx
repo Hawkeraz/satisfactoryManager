@@ -52,8 +52,6 @@ const Sidebar = (props) => {
     Navigate("/");
   }
 
-  console.log(user);
-
   return (
     <Box
       sx={{
@@ -112,11 +110,12 @@ const Sidebar = (props) => {
                 </Box>
               )}
             </MenuItem>
-            <Divider />
+
+            <Divider style={{ marginTop: ".5rem", marginBottom: ".5rem" }} />
 
             {/* Menu Items */}
 
-            <Box paddingLeft={collapser ? undefined : "0%"} mt={"2rem"}>
+            <Box paddingLeft={collapser ? undefined : "0%"}>
               <Item
                 title="News"
                 to="/app/news"
@@ -125,6 +124,19 @@ const Sidebar = (props) => {
                 setSelected={setSelected}
                 key={0}
               />
+
+              <Divider style={{ marginTop: ".5rem", marginBottom: ".5rem" }} />
+
+              {!collapser ? (
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  color={colors.grey[100]}
+                  sx={typoStyle}
+                >
+                  Factory Info
+                </Typography>
+              ) : null}
 
               {DataTracking.map((opts) => (
                 <Item
@@ -136,6 +148,19 @@ const Sidebar = (props) => {
                   key={opts.id}
                 />
               ))}
+
+              <Divider style={{ marginTop: ".5rem", marginBottom: ".5rem" }} />
+
+              {!collapser ? (
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  color={colors.grey[100]}
+                  sx={typoStyle}
+                >
+                  Vehicles Tracking
+                </Typography>
+              ) : null}
 
               {LogisticTracking.map((opts) => (
                 <Item
@@ -163,7 +188,10 @@ const Sidebar = (props) => {
                 textOverflow="ellipsis"
                 whiteSpace="nowrap"
               >
-                <ProfilePicture src={user.user_metadata.avatar_url} alt="user" />
+                <ProfilePicture
+                  src={user.user_metadata.avatar_url}
+                  alt="user"
+                />
                 {collapser ? null : (
                   <Box p={1}>
                     <Typography variant="h5" color={colors.grey[100]}>
