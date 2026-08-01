@@ -24,7 +24,7 @@ const Dashboard = () => {
       .then((response) => {
         setSinkData(response.data[0]);
       })
-      .catch((err) => setSinkData(err));
+      .catch((err) => console.log(err));
   }
 
   async function energyGraphUpdate() {
@@ -33,7 +33,7 @@ const Dashboard = () => {
       .then((response) => {
         setEnergyData(response.data);
       })
-      .catch((err) => setSinkData(err));
+      .catch((err) => console.log(err));
   }
 
   return (

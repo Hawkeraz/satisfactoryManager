@@ -6,6 +6,7 @@ import {
   useTheme,
   Divider,
   Skeleton,
+  CardActionArea,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { colorTokens } from "../../theme";
@@ -41,7 +42,6 @@ const FactoryCard = (props) => {
     );
   }
 
-
   function getIconForType(type) {
     const iconMap = {
       Solid: <MUIicons.Hexagon sx={{ fontSize: "1rem" }} />,
@@ -55,54 +55,56 @@ const FactoryCard = (props) => {
     <Skeleton variant="rectangular" width="100%" height="100%" />
   ) : (
     <Card sx={{ backgroundColor: colors.primary[400] }}>
-      <Box margin="3rem" borderRadius="8px">
-        <CardMedia component="img" image={image} alt="warehouse image" />
-      </Box>
-
-      <Divider orientation="horizontal" variant="fullWidth" />
-
-      <Box display="flex" flexDirection="column" padding="1rem">
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Typography
-            variant="h4"
-            marginBottom="1rem"
-            overflow="hidden"
-            textOverflow="ellipsis"
-            whiteSpace="nowrap"
-          >
-            <MouseHoverPopover
-              mainText={name}
-              description={name}
-              variant="h4"
-              sx={{
-                fontWeight: "700",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-              }}
-            />
-          </Typography>
-          <Typography
-            variant="h4"
-            marginBottom="1rem"
-            fontWeight="700"
-            mt=".3rem"
-          >
-            <MouseHoverPopover
-              mainText={getIconForType(type)}
-              description={type}
-            />
-          </Typography>
+      <CardActionArea>
+        <Box margin="3rem" borderRadius="8px">
+          <CardMedia component="img" image={image} alt="warehouse image" />
         </Box>
-        {status("Prod. Rate", pRate, "/min")}
-        {status("Cons. Rate", cRate, "/min")}
-        {status("Efficiency", efficiency, "%")}
-      </Box>
+
+        <Divider orientation="horizontal" variant="fullWidth" />
+
+        <Box display="flex" flexDirection="column" padding="1rem">
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Typography
+              variant="h4"
+              marginBottom="1rem"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+            >
+              <MouseHoverPopover
+                mainText={name}
+                description={name}
+                variant="h4"
+                sx={{
+                  fontWeight: "700",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              />
+            </Typography>
+            <Typography
+              variant="h4"
+              marginBottom="1rem"
+              fontWeight="700"
+              mt=".3rem"
+            >
+              <MouseHoverPopover
+                mainText={getIconForType(type)}
+                description={type}
+              />
+            </Typography>
+          </Box>
+          {status("Prod. Rate", pRate, "/min")}
+          {status("Cons. Rate", cRate, "/min")}
+          {status("Efficiency", efficiency, "%")}
+        </Box>
+      </CardActionArea>
     </Card>
   );
 };

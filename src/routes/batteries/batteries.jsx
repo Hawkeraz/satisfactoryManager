@@ -1,11 +1,28 @@
 import { Cards } from "./card";
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 import Header from "../../components/Header";
-import { getPower } from "../../Data/getPower";
+import axiosInstance from "../../services/axiosInstance";
+
+import { useEffect, useState } from "react";
 
 const Batteries = () => {
+  const [power, setPower] = useState();
+
+  useEffect(() => {
+    async function getPower() {
+      axiosInstance
+        .get("/getPower")
+        .then((response) => {
+          setPower(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    getPower();
+  }, []);
+
   return (
     <Box m="0px 20px 20px 20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -17,9 +34,9 @@ const Batteries = () => {
         columns={{ xs: 4, sm: 8, md: 12 }}
         height="77vh"
         overflow="auto"
-        sx={{scrollbarWidth: "none"}}
+        sx={{ scrollbarWidth: "none" }}
       >
-        {getPower.map((power, id) => (
+        {power ? power.map((power, id) => (
           <Grid key={id} size={{ xs: 2, sm: 4, md: 2 }}>
             <Cards
               name={power.Name}
@@ -31,7 +48,7 @@ const Batteries = () => {
               key={id}
             />
           </Grid>
-        ))}
+        )): <Skeleton variant="rectangular" width={200} height={200} /> }
       </Grid>
     </Box>
   );

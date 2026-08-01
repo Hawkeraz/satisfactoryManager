@@ -1,5 +1,15 @@
 import * as MUIicons from "@mui/icons-material";
-import { Typography, Box, useTheme, Divider, Button, Card, CardMedia, Skeleton } from "@mui/material";
+import {
+  Typography,
+  Box,
+  useTheme,
+  Divider,
+  Button,
+  Card,
+  CardMedia,
+  Skeleton,
+  CardActionArea,
+} from "@mui/material";
 import { colorTokens } from "../../theme";
 import batteryIMG from "../../assets/power.png";
 const Cards = (props) => {
@@ -33,12 +43,14 @@ const Cards = (props) => {
     }
   }
 
-  return (
-    percent === null ? <Skeleton variant="rectangular" width="100%" height="100%" /> :
+  return percent === null ? (
+    <Skeleton variant="rectangular" width="100%" height="100%" />
+  ) : (
     <Card sx={{ backgroundColor: colors.primary[400] }}>
-      <Box borderRadius="8px">
-        <CardMedia component="img" image={batteryIMG} alt="warehouse image" />
-      </Box>
+      <CardActionArea>
+        <Box borderRadius="8px">
+          <CardMedia component="img" image={batteryIMG} alt="warehouse image" />
+        </Box>
 
         <Box display="flex" flexDirection="column" padding="1rem">
           <Typography variant="h3" marginBottom="1rem" fontWeight="700">
@@ -67,7 +79,7 @@ const Cards = (props) => {
               fontWeight="700"
             >
               <Typography color={colors.grey[300]}>
-                {(Math.round(using + Number.EPSILON) * 100) / 100} W / 
+                {(Math.round(using + Number.EPSILON) * 100) / 100} W /
                 {(Math.round(capacity + Number.EPSILON) * 100) / 100} W
               </Typography>
             </Box>
@@ -80,14 +92,7 @@ const Cards = (props) => {
             alignItems="center"
             justifyContent="space-between"
           >
-            <Box marginTop="1rem">
-              <Button variant="outlined" color={colors.primary[400]}> Edit </Button>
-            </Box>
-            <Box
-              display="flex"
-              alignItems="center"
-              marginTop="1rem"
-            >
+            <Box display="flex" alignItems="center" marginTop="1rem">
               <Box
                 display="flex"
                 justifyContent="center"
@@ -116,6 +121,7 @@ const Cards = (props) => {
             </Box>
           </Box>
         </Box>
+      </CardActionArea>
     </Card>
   );
 };
