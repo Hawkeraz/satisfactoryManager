@@ -87,7 +87,7 @@ The following tools is used to build the entire project:
 <img alt="Power Supply" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094494863390/3.png?ex=6a6c86cd&is=6a6b354d&hm=203aa1a4bded9d5952b4dac759f047b5c792f63e8d3c1667b64bd03e4675dd61&=&format=webp&quality=lossless&width=1768&height=479"/>
 
 <h4> News | Changelog </h4>
-<img alt="news" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094796726412/4.png?ex=6a6c86cd&is=6a6b354d&hm=bd868933b6aae53b4e01bb9a10b03b99b7af470d8cb9573799f448fae1964c42&=&format=webp&quality=lossless&width=1728&height=864"/>
+<img alt="news" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094796726412/4.png?ex=6a72758d&is=6a71240d&hm=14d4df8185c0ae550f58751df5470d62b9ed35c9cf4ad2220d6282481508d07a&=&format=webp&quality=lossless"/>
 
 <h4> and more to come... Stay tuned!</h4>
 
