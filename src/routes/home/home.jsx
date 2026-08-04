@@ -1,9 +1,9 @@
 import { Box, useTheme } from "@mui/material";
-import Header from "../../components/Header";
+import { Header } from "../../components";
 import { News } from "./news";
 
 import { colorTokens } from "../../theme";
-import { getNews } from "../../Data/getNews";
+import { getNews } from "../../mock/getNews";
 
 const Home = () => {
   const theme = useTheme();

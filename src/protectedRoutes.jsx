@@ -1,26 +1,26 @@
-import { Topbar, Sidebar } from "./routes";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
 
+import { Topbar, Sidebar } from "./routes";
+import { useAuth } from "./contexts";
+import { Loading } from "./components";
 const ProtectedRoutes = () => {
-  const location = useLocation();
-  const user = location.state?.user;
+  const { user, loading } = useAuth();
 
-  const [userData, setUserData] = useState(user);
+  if (loading) {
+    return <Loading />;
+  }
 
-  useEffect(() => {
-    setUserData(user);
-  }, []);
-
-  return (
+  return user ? (
     <div className="app">
-      <Sidebar user={userData} />
+      <Sidebar />
       <main className="content">
         <Topbar />
         <Outlet />
       </main>
     </div>
+  ) : (
+    <Navigate to="/" replace />
   );
 };
 
