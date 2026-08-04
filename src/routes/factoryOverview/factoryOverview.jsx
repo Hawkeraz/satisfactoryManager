@@ -3,7 +3,7 @@ import { colorTokens } from "../../theme";
 import { FactoryCard } from "./factoryCard";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
-import Header from "../../components/Header";
+import { Header } from "../../components";
 import Grid from "@mui/material/Grid2";
 
 const FactoryOverview = () => {

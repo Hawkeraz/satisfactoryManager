@@ -2,7 +2,7 @@ import { Cards } from "./card";
 import { Box, Skeleton } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-import Header from "../../components/Header";
+import { Header } from "../../components";
 import axiosInstance from "../../services/axiosInstance";
 
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ const Batteries = () => {
   return (
     <Box m="0px 20px 20px 20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="BATTERIES" subtitle="Check your circuits" />
+        <Header title="CIRCUITS" subtitle="Check your circuits" />
       </Box>
       <Grid
         container

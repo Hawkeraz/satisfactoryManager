@@ -6,6 +6,10 @@ import { Navigate, useNavigate, Link } from "react-router-dom";
 import { colorTokens } from "../../theme";
 import { DataTracking, LogisticTracking } from "./sidebarMenu";
 import { ProfilePicture } from "../../components/avatar";
+import { useAuth } from "../../contexts";
+import { supabase } from "../../services/supabase";
+
+import stLogo from "../../assets/logoSampleAI.png";
 
 import { Auth } from "@supabase/auth-ui-react";
 import { createClient } from "@supabase/supabase-js";
@@ -33,22 +37,17 @@ const typoStyle = {
   m: "15px 0 5px 1.5rem",
 };
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_CLIENTID,
-);
-
 const Sidebar = (props) => {
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
   const Navigate = useNavigate();
-  const { user } = props;
+  const { user } = useAuth();
 
   const [collapser, setCollapser] = useState(false);
-  const [selected, setSelected] = useState("news");
+  const [selected, setSelected] = useState("Dashboard");
 
   async function handleLogout() {
-    const { error } = await supabase.auth.signOut();
+    await supabase.auth.signOut();
     Navigate("/");
   }
 
@@ -91,21 +90,15 @@ const Sidebar = (props) => {
             {/* LOGO AND MENU ICON */}
             <MenuItem
               onClick={() => setCollapser(!collapser)}
-              icon={
-                collapser ? (
-                  <MaterialIcons.MenuOutlined />
-                ) : (
-                  <MaterialIcons.ArrowBackOutlined />
-                )
-              }
+              icon={<img src={stLogo} alt="logo" height="35vh" width="35vw" />}
               style={{
                 color: colors.grey[100],
               }}
             >
               {!collapser && (
                 <Box>
-                  <Box display="flex" alignItems="center">
-                    Satisfactory Manager
+                  <Box display="flex" alignItems="center" pt=".5vh">
+                    {selected}
                   </Box>
                 </Box>
               )}
@@ -189,16 +182,16 @@ const Sidebar = (props) => {
                 whiteSpace="nowrap"
               >
                 <ProfilePicture
-                  src={user.user_metadata.avatar_url}
+                  src={user?.user_metadata.avatar_url}
                   alt="user"
                 />
                 {collapser ? null : (
                   <Box p={1}>
                     <Typography variant="h5" color={colors.grey[100]}>
-                      {user.user_metadata.name}
+                      {user?.user_metadata.name}
                     </Typography>
                     <Typography variant="h6" color={colors.green[500]}>
-                      {user.app_metadata.provider}
+                      {user?.app_metadata.provider}
                     </Typography>
                   </Box>
                 )}

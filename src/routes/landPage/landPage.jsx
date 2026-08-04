@@ -5,27 +5,14 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
 import { colorTokens } from "../../theme";
+import { supabase } from "../../services/supabase";
 
 import Stack from "@mui/material/Stack";
 import logo from "../../assets/sfLogo.png";
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_CLIENTID,
-);
-
 const LandingPage = () => {
-  const navigate = useNavigate();
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
-
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === "SIGNED_IN") {
-      navigate("/redirect");
-    } else {
-      navigate("/");
-    }
-  });
 
   return (
     <Box display="flex">
@@ -39,6 +26,7 @@ const LandingPage = () => {
         flexDirection="column"
         height="100vh"
         width="30vw"
+        alignItems="center"
         backgroundColor={colors.primary[400]}
       >
         <Box m="2rem">
@@ -48,14 +36,27 @@ const LandingPage = () => {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          flexDirection="column"
           mt="5vh"
+          width="70%"
+          backgroundColor={colors.primary[700]}
+          borderRadius="16px"
         >
-          <Auth
-            supabaseClient={supabase}
-            appearance={{ theme: ThemeSupa }}
-            theme="dark"
-            providers={["google", "discord"]}
-          />
+          <Box>
+            <Typography variant="h2" m="1rem">
+              LOGIN
+            </Typography>
+          </Box>
+          <Box mb="1rem">
+            <Auth
+              supabaseClient={supabase}
+              appearance={{ theme: ThemeSupa }}
+              theme="dark"
+              providers={["google", "discord"]}
+              redirectTo={`${window.location.origin}/redirect`}
+              // onlyThirdPartyProviders
+            />
+          </Box>
         </Box>
       </Box>
     </Box>

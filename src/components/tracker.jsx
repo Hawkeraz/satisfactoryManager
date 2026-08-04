@@ -46,7 +46,7 @@ const Tracker = (props) => {
             {amount}
           </Typography>
         </Box>
-        {progress ? <ProgressBar value={percent} /> : null}
+        {progress ? <ProgressBar value={percent} /> : <box style={{height: "1.1rem"}}/>}
       </Box>
     </Box>
   );
