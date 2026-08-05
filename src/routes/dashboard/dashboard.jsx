@@ -37,7 +37,7 @@ const Dashboard = () => {
   }
 
   return (
-    <Box ml="1vw" mb="2vh" mr="2vw">
+    <Box ml="1vw" mr="1vw">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Track your productions here" />
       </Box>

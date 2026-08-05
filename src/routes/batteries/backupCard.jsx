@@ -1,7 +1,16 @@
 import * as MUIicons from "@mui/icons-material";
-import { Typography, Box, useTheme, Divider, Button, Card, CardMedia } from "@mui/material";
+import {
+  Typography,
+  Box,
+  useTheme,
+  Divider,
+  Button,
+  Card,
+  CardMedia,
+} from "@mui/material";
 import { colorTokens } from "../../theme";
 import batteryIMG from "../../assets/power.png";
+import { motion } from "framer-motion";
 const Cards = (props) => {
   const { maxUsing, using, capacity, percent, fuse, name } = props;
 
@@ -101,13 +110,12 @@ const Cards = (props) => {
             justifyContent="space-between"
           >
             <Box marginTop="1rem">
-              <Button variant="outlined" color="secondary"> Edit </Button>
+              <Button variant="outlined" color="secondary">
+                {" "}
+                Edit{" "}
+              </Button>
             </Box>
-            <Box
-              display="flex"
-              alignItems="center"
-              marginTop="1rem"
-            >
+            <Box display="flex" alignItems="center" marginTop="1rem">
               <Box
                 display="flex"
                 justifyContent="center"

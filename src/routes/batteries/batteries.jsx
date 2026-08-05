@@ -24,7 +24,7 @@ const Batteries = () => {
   }, []);
 
   return (
-    <Box m="0px 20px 20px 20px">
+    <Box ml="1vw" mr="1vw">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="CIRCUITS" subtitle="Check your circuits" />
       </Box>
@@ -48,7 +48,7 @@ const Batteries = () => {
               key={id}
             />
           </Grid>
-        )): <Skeleton variant="rectangular" width={200} height={200} /> }
+        )): <Skeleton variant="rounded" width={200} height={200} /> }
       </Grid>
     </Box>
   );

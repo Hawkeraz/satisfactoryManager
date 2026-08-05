@@ -85,7 +85,7 @@ const DashboardLayout = (props) => {
             <LineGraph title="Tickets Overtime" data={sinkData.GraphPoints} />
           ) : (
             <Skeleton
-              variant="rectangular"
+              variant="rounded"
               width="100%"
               height="99.5%"
               animation="wave"
@@ -100,6 +100,20 @@ const DashboardLayout = (props) => {
           />
         </Grid>
       </Grid>
+      {/* <Grid container {...mainGrid} mt={2}>
+        <Grid {...rowTracker} size={9}>
+          {energyData.PowerConsumed ? (
+            <LineGraph title="Power Consuming" data={energyData.PowerConsumed} />
+          ) : (
+            <Skeleton
+              variant="rounded"
+              width="100%"
+              height="99.5%"
+              animation="wave"
+            />
+          )}
+        </Grid>
+      </Grid> */}
     </Box>
   );
 };

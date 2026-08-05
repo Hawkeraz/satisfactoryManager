@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import { colorTokens } from "../../theme";
 import { MouseHoverPopover } from "../../components/popOver";
+import { motion } from "framer-motion";
 import * as MUIicons from "@mui/icons-material";
 
 const FactoryCard = (props) => {
@@ -54,7 +55,7 @@ const FactoryCard = (props) => {
   return !imageCode ? (
     <Skeleton variant="rectangular" width="100%" height="100%" />
   ) : (
-    <Card sx={{ backgroundColor: colors.primary[400] }}>
+    <Card sx={{ backgroundColor: colors.primary[400] }} component={motion.div} whileHover={{ scale: 1.05 }}>
       <CardActionArea>
         <Box margin="3rem" borderRadius="8px">
           <CardMedia component="img" image={image} alt="warehouse image" />

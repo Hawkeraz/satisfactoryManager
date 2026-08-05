@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { colorTokens } from "../../theme";
 import batteryIMG from "../../assets/power.png";
+import { motion } from "framer-motion";
+
 const Cards = (props) => {
   const { using, capacity, percent, fuse, name } = props;
 
@@ -44,9 +46,9 @@ const Cards = (props) => {
   }
 
   return percent === null ? (
-    <Skeleton variant="rectangular" width="100%" height="100%" />
+    <Skeleton variant="rounded" width="100%" height="100%" />
   ) : (
-    <Card sx={{ backgroundColor: colors.primary[400] }}>
+    <Card sx={{ backgroundColor: colors.primary[400] }} component={motion.div} whileHover={{scale: 1.05}}>
       <CardActionArea>
         <Box borderRadius="8px">
           <CardMedia component="img" image={batteryIMG} alt="warehouse image" />

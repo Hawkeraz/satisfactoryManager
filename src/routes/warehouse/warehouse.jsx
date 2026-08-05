@@ -1,13 +1,16 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, useTheme, Skeleton } from "@mui/material";
 import { colorTokens } from "../../theme";
 import { WarehouseCard } from "./warehouseCard";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
-import { Header } from "../../components";
+import { DialogBox, Header } from "../../components";
 import Grid from "@mui/material/Grid2";
 
 const Warehouse = () => {
   const [itemStorage, setItemStorage] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const theme = useTheme();
   const colors = colorTokens(theme.palette.mode);
 
@@ -18,8 +21,21 @@ const Warehouse = () => {
       .catch(() => setItemStorage([]));
   }, []);
 
+  const handleOpen = (item) => {
+    setSelectedItem(item);
+    setOpen(true);
+
+    console.log(item);
+  };
+
+  const handleClose = () => {
+    setSelectedItem(null);
+    setOpen(false);
+  }
+
   return (
-    <Box m="0px 20px 20px 20px">
+    <>
+    <Box ml="1vw" mr="1vw">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
           title="Warehouse"
@@ -42,14 +58,19 @@ const Warehouse = () => {
                 imageCode={item.ClassName}
                 amount={item.Amount}
                 slotSize={item.MaxAmount}
+                onOpen={handleOpen}
               />
             </Grid>
           ))
         ) : (
-          <h3>No items found</h3>
+          <Skeleton variant="rounded" width="100%" height="100%" />
         )}
       </Grid>
     </Box>
+    <DialogBox open={Boolean(selectedItem)} onClose={handleClose} title={selectedItem}>
+      <p>Content</p>
+    </DialogBox>
+    </>
   );
 };
 

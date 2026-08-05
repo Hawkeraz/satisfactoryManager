@@ -10,7 +10,7 @@ const Home = () => {
   const colors = colorTokens(theme.palette.mode);
 
   return (
-    <Box m="0px 20px 20px 20px">
+    <Box ml="1vw" mr="1vw">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
           title="NEWS"

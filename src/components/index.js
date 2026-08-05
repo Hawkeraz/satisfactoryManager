@@ -6,3 +6,5 @@ export * from "./lineChart";
 export * from "./pieChart";
 export * from "./progressBar";
 export * from "./popOver";
+export * from "./animatedOutlet";
+export * from "./dialog";

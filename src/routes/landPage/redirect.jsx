@@ -10,7 +10,6 @@ const Redirect = () => {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
-      console.log(data);
       if (data.session) {
         navigate("/app/dash", { replace: true });
       } else {

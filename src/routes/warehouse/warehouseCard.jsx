@@ -10,11 +10,12 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { colorTokens } from "../../theme";
-import { MouseHoverPopover } from "../../components/popOver";
+import { MouseHoverPopover } from "../../components";
+import { motion } from "framer-motion";
 import * as MUIicons from "@mui/icons-material";
 
 const WarehouseCard = (props) => {
-  const { imageCode, amount, slotSize, name } = props;
+  const { imageCode, amount, slotSize, name, id, onOpen } = props;
   const [image, setImage] = useState();
 
   const theme = useTheme();
@@ -56,8 +57,12 @@ const WarehouseCard = (props) => {
   return !imageCode ? (
     <Skeleton variant="rectangular" width="100%" height="100%" />
   ) : (
-    <Card sx={{ backgroundColor: colors.primary[400] }}>
-      <CardActionArea>
+    <Card
+      sx={{ backgroundColor: colors.primary[400] }}
+      component={motion.div}
+      whileHover={{ scale: 1.05 }}
+    >
+      <CardActionArea onClick={() => {onOpen(name)}}>
         <Box margin="3rem" borderRadius="8px">
           <CardMedia component="img" image={image} alt="warehouse image" />
         </Box>

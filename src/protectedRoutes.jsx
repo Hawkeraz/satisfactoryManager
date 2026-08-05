@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { Topbar, Sidebar } from "./routes";
 import { useAuth } from "./contexts";
-import { Loading } from "./components";
+import { Loading, AnimatedOutlet } from "./components";
 const ProtectedRoutes = () => {
   const { user, loading } = useAuth();
 
@@ -14,9 +14,11 @@ const ProtectedRoutes = () => {
   return user ? (
     <div className="app">
       <Sidebar />
-      <main className="content">
+      <main className="header">
         <Topbar />
-        <Outlet />
+        <div className="content">
+          <AnimatedOutlet />
+        </div>
       </main>
     </div>
   ) : (

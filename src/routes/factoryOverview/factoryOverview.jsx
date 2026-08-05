@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, Skeleton, useTheme } from "@mui/material";
 import { colorTokens } from "../../theme";
 import { FactoryCard } from "./factoryCard";
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ const FactoryOverview = () => {
   }, []);
 
   return (
-    <Box m="0px 20px 20px 20px">
+    <Box ml="1vw" mr="1vw">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header
           title="Factory Overview"
@@ -30,7 +30,7 @@ const FactoryOverview = () => {
         container
         spacing={{ xs: 1, md: 1 }}
         columns={{ xs: 4, sm: 8, md: 24 }}
-        height="77vh"
+        height="80vh"
         overflow="auto"
         sx={{ scrollbarWidth: "none" }}
       >
@@ -45,7 +45,7 @@ const FactoryOverview = () => {
               type={item.Type}
             />
           </Grid>
-        )): <h3>No Data to Display!</h3>}
+        )): <Skeleton width="100%" height="100%" variant="rounded"/>}
       </Grid>
     </Box>
   );
