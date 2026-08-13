@@ -16,7 +16,7 @@
 	🚧  Satisfactory Manager 🚀 Under Development...  🚧
 </h4>
 
-<img alt="Dash" src="https://imgur.com/JMF63aD"/>
+<img alt="Dash" src="https://ibb.co/nssCRtq6"/>
 
 ### Features
 
@@ -76,19 +76,19 @@ The following tools is used to build the entire project:
 ### Screenshots
 
 <h4> Login Screen </h4>
-<img alt="login screen" src="https://imgur.com/7Oq6dwL"/>
+<img alt="login screen" src="https://ibb.co/pB9vqwcc"/>
 
 <h4> Dashboard </h4>
-<img alt="dash" src="https://imgur.com/JMF63aD"/>
+<img alt="dash" src="https://ibb.co/nssCRtq6"/>
 
 <h4> Coupoun Screen (in game) side to side with the dashboard </h4>
-<img alt="Coupons Comparision" src="https://imgur.com/f3LoWSc"/>
+<img alt="Coupons Comparision" src="https://ibb.co/9948N6k6"/>
 
 <h4> Power Supply graphs (in game) side to side with dashboard </h4>
-<img alt="Power Supply" src="https://imgur.com/pLBYp6d"/>
+<img alt="Power Supply" src="https://ibb.co/KjfCQ2tv"/>
 
 <h4> News | Changelog </h4>
-<img alt="news" src="https://imgur.com/3v8whtO"/>
+<img alt="news" src="https://ibb.co/hJdS0KFN"/>
 
 <h4> and more to come... Stay tuned!</h4>
 
