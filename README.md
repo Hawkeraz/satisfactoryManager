@@ -16,7 +16,7 @@
 	🚧  Satisfactory Manager 🚀 Under Development...  🚧
 </h4>
 
-<img alt="test" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094058659921/2.png?ex=6a6c86cd&is=6a6b354d&hm=9cdec17aa7bd26901195d32c66ca534d4e3c117ae465dcfebee1493b9a9961f3&=&format=webp&quality=lossless&width=1740&height=864"/>
+<img alt="test" src="https://imgur.com/x81Ljii"/>
 
 ### Features
 
@@ -29,7 +29,7 @@
 - [ ] Trains tracking
 - [ ] Drones tracking
 - [x] Storage visualizer (warehouse)
-- [ ] Real time tracker (dashboard)
+- [X] Real time tracker (dashboard)
 - [ ] Support to Satisfactory Plus
 
 ### Setup
@@ -75,19 +75,19 @@ The following tools is used to build the entire project:
 
 ### Screenshots
 <h4> Dashboard </h4>
-<img alt="dash" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094058659921/2.png?ex=6a6c86cd&is=6a6b354d&hm=9cdec17aa7bd26901195d32c66ca534d4e3c117ae465dcfebee1493b9a9961f3&=&format=webp&quality=lossless&width=1740&height=864"/>
+<img alt="dash" src="https://imgur.com/x81Ljii"/>
 
 <h4> Login Screen </h4>
-<img alt="login screen" src="https://media.discordapp.net/attachments/1514685075457835078/1532349093710397561/1.png?ex=6a6c86cd&is=6a6b354d&hm=d4a5c53b42e546ff827686459eb5bb81dd58568d7fba3245d99191171b7741e9&=&format=webp&quality=lossless&width=1738&height=864"/>
+<img alt="login screen" src="https://imgur.com/A4vFOg1"/>
 
 <h4> Coupoun Screen (in game) side to side with the dashboard </h4>
-<img alt="Coupons Comparision" src="https://media.discordapp.net/attachments/1514685075457835078/1532349095157563463/5.png?ex=6a6c86cd&is=6a6b354d&hm=a1124a577cafb2be4434a94ec4348da1632d693647855418237ea562673848a3&=&format=webp&quality=lossless&width=1768&height=478"/>
+<img alt="Coupons Comparision" src="https://imgur.com/u981Aju"/>
 
 <h4> Power Supply graphs (in game) side to side with dashboard </h4>
-<img alt="Power Supply" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094494863390/3.png?ex=6a6c86cd&is=6a6b354d&hm=203aa1a4bded9d5952b4dac759f047b5c792f63e8d3c1667b64bd03e4675dd61&=&format=webp&quality=lossless&width=1768&height=479"/>
+<img alt="Power Supply" src="https://imgur.com/QMvqtDI"/>
 
 <h4> News | Changelog </h4>
-<img alt="news" src="https://media.discordapp.net/attachments/1514685075457835078/1532349094796726412/4.png?ex=6a72758d&is=6a71240d&hm=14d4df8185c0ae550f58751df5470d62b9ed35c9cf4ad2220d6282481508d07a&=&format=webp&quality=lossless"/>
+<img alt="news" src="https://imgur.com/4arzYEb"/>
 
 <h4> and more to come... Stay tuned!</h4>
 
