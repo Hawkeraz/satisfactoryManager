@@ -16,7 +16,7 @@
 	🚧  Satisfactory Manager 🚀 Under Development...  🚧
 </h4>
 
-<img alt="test" src="https://imgur.com/x81Ljii"/>
+<img alt="Dash" src="https://imgur.com/x81Ljii"/>
 
 ### Features
 
